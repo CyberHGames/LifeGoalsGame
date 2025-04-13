@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Goals Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+        }
+        #goalInput {
+            padding: 10px;
+            width: 200px;
+        }
+        #addGoal {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .goal {
+            background-color: white;
+            padding: 10px;
+            margin: 10px auto;
+            width: 300px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Life Goals Tracker 🚀</h1>
+    <p>Add your goals and track progress!</p>
+
+    <input type="text" id="goalInput" placeholder="Enter a goal...">
+    <button id="addGoal">Add Goal</button>
+
+    <div id="goalList"></div>
+
+    <script>
+        document.getElementById('addGoal').addEventListener('click', function() {
+            let goalText = document.getElementById('goalInput').value;
+            if (goalText.trim() === '') return;
+
+            let goalDiv = document.createElement('div');
+            goalDiv.className = 'goal';
+            goalDiv.innerHTML = `<p>${goalText}</p> <button onclick="this.parentElement.remove()">✅ Done</button>`;
+
+            document.getElementById('goalList').appendChild(goalDiv);
+            document.getElementById('goalInput').value = '';
+        });
+    </script>
+
+</body>
+</html>
